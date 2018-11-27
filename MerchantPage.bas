@@ -9,7 +9,7 @@ IE.Visible = True
 Set doc = IE.document
 
 '----------------------------------------------------------------------Go to Login Page
-IE.navigate "https://map.mcpayment.net:9999"
+            IE.navigate "https://example.com"
 
 '-------------------------------------------------------------------Wait for loading
 Do While IE.Busy
@@ -31,7 +31,7 @@ While IE.readyState < 4 Or IE.Busy: WScript.Sleep 100: Wend
 '(ReadyState:4=Complete,3=Interactive,2=Loaded,1=Loading,0=Uninitialized)
 
 '------------------------------------------------------------------------Go to Merchant Page
-IE.navigate "https://map.mcpayment.net:9999/GW/Merchant/"
+IE.navigate "https://example.com_2"
 
 '-------------------------------------------------------------------------Wait for loading
 Do While IE.Busy
@@ -73,8 +73,7 @@ doc.getElementById("txtBusinessRegistrationCodeAdd").Value = ThisWorkbook.Sheets
 doc.getElementById("txtDescriptiveBillAdd").Value = ThisWorkbook.Sheets("Sheet1").Range("AH2").Value
 
 '---------------------------------------------------Authorised Signer Section
-'doc.getElementById("txtFirstNameAuthorisedSignerAdd").Value = ThisWorkbook.Sheets("Sheet1").Range("AP2").Value
-
+doc.getElementById("txtFirstNameAuthorisedSignerAdd").Value = ThisWorkbook.Sheets("Sheet1").Range("AP2").Value
 'firstName = Left(AP2, (Find(" ", A1, 1) - 1))
 doc.getElementById("txtFirstNameAuthorisedSignerAdd").Value = firstName
 doc.getElementById("txtLastNameAuthorisedSignerAdd").Value = ThisWorkbook.Sheets("Sheet1").Range("AP2").Value
@@ -121,8 +120,6 @@ doc.getElementById("txtCountryCodeAlphaBusinessAddressAdd").Value = "SGP"
 
 'Uncheck fraud check box
 doc.getElementById("chkIsFraudEnabledAdd").Click
-
-
 
 'Dropdowns
 'doc.getElementById("txtFullNameAdd").Value = "Irwan"<---- option value
